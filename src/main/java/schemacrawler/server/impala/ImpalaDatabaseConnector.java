@@ -16,7 +16,7 @@ public final class ImpalaDatabaseConnector extends DatabaseConnector {
 						connection) -> informationSchemaViewsBuilder.fromResourceFolder("/impala.information_schema"),
 				url -> Pattern.matches("jdbc:hive2:.*", url));
 		try {
-			Class.forName("org.apache.hive.jdbc.HiveDriver");
+			Class.forName("com.cloudera.impala.jdbc41.Driver");
 		} catch (final ClassNotFoundException e) {
 			throw new RuntimeException("Could not load Impala JDBC driver", e);
 		}
